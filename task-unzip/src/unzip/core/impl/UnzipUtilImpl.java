@@ -6,9 +6,11 @@ package unzip.core.impl;
 import unzip.core.SetupTaskLogger;
 import unzip.core.UnzipUtil;
 
+//TODO import net.lingala.zip4j.progress.ProgressMonitor;
 import javax.swing.ProgressMonitor;
 
 import java.io.File;
+//TODO import net.lingala.zip4j.ZipFile
 import java.util.zip.ZipFile;
 
 /**
