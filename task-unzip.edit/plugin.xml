@@ -10,7 +10,7 @@
       <!-- @generated unzip -->
       <factory
             uri="http://www.example.org/task-unzip/1.0"
-            class="unzip.provider.unzipItemProviderAdapterFactory"
+            class="com.github.maybee.oomph.task.unzip.provider.unzipItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -23,10 +23,10 @@
       <!-- @generated unzip -->
       <extender
             uri="http://www.eclipse.org/oomph/base/1.0"
-            class="unzip.provider.unzipItemProviderAdapterFactory$BaseChildCreationExtender"/>
+            class="com.github.maybee.oomph.task.unzip.provider.unzipItemProviderAdapterFactory$BaseChildCreationExtender"/>
       <extender
             uri="http://www.eclipse.org/oomph/setup/1.0"
-            class="unzip.provider.unzipItemProviderAdapterFactory$SetupChildCreationExtender"/>
+            class="com.github.maybee.oomph.task.unzip.provider.unzipItemProviderAdapterFactory$SetupChildCreationExtender"/>
    </extension>
 
 </plugin>

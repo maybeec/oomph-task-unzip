@@ -10,7 +10,7 @@
       <!-- @generated unzip -->
       <package
             uri="http://www.example.org/task-unzip/1.0"
-            class="unzip.unzipPackage"
+            class="com.github.maybee.oomph.task.unzip.unzipPackage"
             genModel="model/unzip.genmodel"/>
    </extension>
 
