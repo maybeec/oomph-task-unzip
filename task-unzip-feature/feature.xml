@@ -10,7 +10,7 @@
     Eike Stepper - initial API and implementation
 -->
 <feature
-      id="com.github.maybeec.oomph.task.unzip"
+      id="com.github.maybeec.oomph.task.unzip.feature"
       label="%featureName"
       version="1.0.0.qualifier"
       provider-name="%providerName">
