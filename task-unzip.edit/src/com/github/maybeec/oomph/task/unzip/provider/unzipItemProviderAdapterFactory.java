@@ -1,6 +1,6 @@
 /**
  */
-package com.github.maybee.oomph.task.unzip.provider;
+package com.github.maybeec.oomph.task.unzip.provider;
 
 import org.eclipse.oomph.base.Annotation;
 import org.eclipse.oomph.base.BasePackage;
@@ -30,9 +30,9 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import com.github.maybee.oomph.task.unzip.unzipFactory;
-import com.github.maybee.oomph.task.unzip.unzipPackage;
-import com.github.maybee.oomph.task.unzip.util.unzipAdapterFactory;
+import com.github.maybeec.oomph.task.unzip.unzipFactory;
+import com.github.maybeec.oomph.task.unzip.unzipPackage;
+import com.github.maybeec.oomph.task.unzip.util.unzipAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -98,7 +98,7 @@ public class unzipItemProviderAdapterFactory extends unzipAdapterFactory impleme
   }
 
   /**
-   * This keeps track of the one adapter used for all {@link com.github.maybee.oomph.task.unzip.unzipTask} instances.
+   * This keeps track of the one adapter used for all {@link com.github.maybeec.oomph.task.unzip.unzipTask} instances.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -106,7 +106,7 @@ public class unzipItemProviderAdapterFactory extends unzipAdapterFactory impleme
   protected unzipTaskItemProvider unzipTaskItemProvider;
 
   /**
-   * This creates an adapter for a {@link com.github.maybee.oomph.task.unzip.unzipTask}.
+   * This creates an adapter for a {@link com.github.maybeec.oomph.task.unzip.unzipTask}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated

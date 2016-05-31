@@ -1,6 +1,6 @@
 /**
  */
-package com.github.maybee.oomph.task.unzip.util;
+package com.github.maybeec.oomph.task.unzip.util;
 
 import org.eclipse.oomph.base.ModelElement;
 import org.eclipse.oomph.setup.SetupTask;
@@ -9,8 +9,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
-import com.github.maybee.oomph.task.unzip.unzipPackage;
-import com.github.maybee.oomph.task.unzip.unzipTask;
+import com.github.maybeec.oomph.task.unzip.unzipPackage;
+import com.github.maybeec.oomph.task.unzip.unzipTask;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +22,7 @@ import com.github.maybee.oomph.task.unzip.unzipTask;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see com.github.maybee.oomph.task.unzip.unzipPackage
+ * @see com.github.maybeec.oomph.task.unzip.unzipPackage
  * @generated
  */
 public class unzipSwitch<T> extends Switch<T>

@@ -1,6 +1,6 @@
 /**
  */
-package com.github.maybee.oomph.task.unzip.impl;
+package com.github.maybeec.oomph.task.unzip.impl;
 
 import org.eclipse.oomph.setup.SetupTaskContext;
 import org.eclipse.oomph.setup.impl.SetupTaskImpl;
@@ -9,10 +9,10 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import com.github.maybee.oomph.task.unzip.unzipPackage;
-import com.github.maybee.oomph.task.unzip.unzipTask;
-import com.github.maybee.oomph.task.unzip.core.SetupTaskLogger;
-import com.github.maybee.oomph.task.unzip.core.UnzipUtil;
+import com.github.maybeec.oomph.task.unzip.unzipPackage;
+import com.github.maybeec.oomph.task.unzip.unzipTask;
+import com.github.maybeec.oomph.task.unzip.core.SetupTaskLogger;
+import com.github.maybeec.oomph.task.unzip.core.UnzipUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,9 +21,9 @@ import com.github.maybee.oomph.task.unzip.core.UnzipUtil;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link com.github.maybee.oomph.task.unzip.impl.unzipTaskImpl#getZipFile <em>Zip File</em>}</li>
- *   <li>{@link com.github.maybee.oomph.task.unzip.impl.unzipTaskImpl#getDestinationDir <em>Destination Dir</em>}</li>
- *   <li>{@link com.github.maybee.oomph.task.unzip.impl.unzipTaskImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link com.github.maybeec.oomph.task.unzip.impl.unzipTaskImpl#getZipFile <em>Zip File</em>}</li>
+ *   <li>{@link com.github.maybeec.oomph.task.unzip.impl.unzipTaskImpl#getDestinationDir <em>Destination Dir</em>}</li>
+ *   <li>{@link com.github.maybeec.oomph.task.unzip.impl.unzipTaskImpl#getPriority <em>Priority</em>}</li>
  * </ul>
  * </p>
  *

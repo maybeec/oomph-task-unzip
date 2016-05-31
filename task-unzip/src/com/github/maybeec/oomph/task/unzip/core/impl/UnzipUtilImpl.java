@@ -1,12 +1,12 @@
-package com.github.maybee.oomph.task.unzip.core.impl;
+package com.github.maybeec.oomph.task.unzip.core.impl;
 
 import java.io.File;
 
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.progress.ProgressMonitor;
 
-import com.github.maybee.oomph.task.unzip.core.SetupTaskLogger;
-import com.github.maybee.oomph.task.unzip.core.UnzipUtil;
+import com.github.maybeec.oomph.task.unzip.core.SetupTaskLogger;
+import com.github.maybeec.oomph.task.unzip.core.UnzipUtil;
 
 /**
  * @author sholzer

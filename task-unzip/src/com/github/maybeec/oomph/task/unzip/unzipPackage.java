@@ -1,6 +1,6 @@
 /**
  */
-package com.github.maybee.oomph.task.unzip;
+package com.github.maybeec.oomph.task.unzip;
 
 import org.eclipse.oomph.setup.SetupPackage;
 
@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see com.github.maybee.oomph.task.unzip.unzipFactory
+ * @see com.github.maybeec.oomph.task.unzip.unzipFactory
  * @model kind="package"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore schemaLocation='https://raw.githubusercontent.com/may-bee/oomph-task-download/master/task-download-updatesite/model/Task-unzip-1.0.ecore'"
  * @generated
@@ -48,7 +48,7 @@ public interface unzipPackage extends EPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  String eNS_PREFIX = "com.github.maybee.oomph.task";
+  String eNS_PREFIX = "com.github.maybeec.oomph.task";
 
   /**
    * The singleton instance of the package.
@@ -56,14 +56,14 @@ public interface unzipPackage extends EPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  unzipPackage eINSTANCE = com.github.maybee.oomph.task.unzip.impl.unzipPackageImpl.init();
+  unzipPackage eINSTANCE = com.github.maybeec.oomph.task.unzip.impl.unzipPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link com.github.maybee.oomph.task.unzip.impl.unzipTaskImpl <em>Task</em>}' class.
+   * The meta object id for the '{@link com.github.maybeec.oomph.task.unzip.impl.unzipTaskImpl <em>Task</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.github.maybee.oomph.task.unzip.impl.unzipTaskImpl
-   * @see com.github.maybee.oomph.task.unzip.impl.unzipPackageImpl#getunzipTask()
+   * @see com.github.maybeec.oomph.task.unzip.impl.unzipTaskImpl
+   * @see com.github.maybeec.oomph.task.unzip.impl.unzipPackageImpl#getunzipTask()
    * @generated
    */
   int UNZIP_TASK = 0;
@@ -195,43 +195,43 @@ public interface unzipPackage extends EPackage
   int UNZIP_TASK_FEATURE_COUNT = SetupPackage.SETUP_TASK_FEATURE_COUNT + 3;
 
   /**
-   * Returns the meta object for class '{@link com.github.maybee.oomph.task.unzip.unzipTask <em>Task</em>}'.
+   * Returns the meta object for class '{@link com.github.maybeec.oomph.task.unzip.unzipTask <em>Task</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for class '<em>Task</em>'.
-   * @see com.github.maybee.oomph.task.unzip.unzipTask
+   * @see com.github.maybeec.oomph.task.unzip.unzipTask
    * @generated
    */
   EClass getunzipTask();
 
   /**
-   * Returns the meta object for the attribute '{@link com.github.maybee.oomph.task.unzip.unzipTask#getZipFile <em>Zip File</em>}'.
+   * Returns the meta object for the attribute '{@link com.github.maybeec.oomph.task.unzip.unzipTask#getZipFile <em>Zip File</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Zip File</em>'.
-   * @see com.github.maybee.oomph.task.unzip.unzipTask#getZipFile()
+   * @see com.github.maybeec.oomph.task.unzip.unzipTask#getZipFile()
    * @see #getunzipTask()
    * @generated
    */
   EAttribute getunzipTask_ZipFile();
 
   /**
-   * Returns the meta object for the attribute '{@link com.github.maybee.oomph.task.unzip.unzipTask#getDestinationDir <em>Destination Dir</em>}'.
+   * Returns the meta object for the attribute '{@link com.github.maybeec.oomph.task.unzip.unzipTask#getDestinationDir <em>Destination Dir</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Destination Dir</em>'.
-   * @see com.github.maybee.oomph.task.unzip.unzipTask#getDestinationDir()
+   * @see com.github.maybeec.oomph.task.unzip.unzipTask#getDestinationDir()
    * @see #getunzipTask()
    * @generated
    */
   EAttribute getunzipTask_DestinationDir();
 
   /**
-   * Returns the meta object for the attribute '{@link com.github.maybee.oomph.task.unzip.unzipTask#getPriority <em>Priority</em>}'.
+   * Returns the meta object for the attribute '{@link com.github.maybeec.oomph.task.unzip.unzipTask#getPriority <em>Priority</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Priority</em>'.
-   * @see com.github.maybee.oomph.task.unzip.unzipTask#getPriority()
+   * @see com.github.maybeec.oomph.task.unzip.unzipTask#getPriority()
    * @see #getunzipTask()
    * @generated
    */
@@ -261,11 +261,11 @@ public interface unzipPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link com.github.maybee.oomph.task.unzip.impl.unzipTaskImpl <em>Task</em>}' class.
+     * The meta object literal for the '{@link com.github.maybeec.oomph.task.unzip.impl.unzipTaskImpl <em>Task</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.github.maybee.oomph.task.unzip.impl.unzipTaskImpl
-     * @see com.github.maybee.oomph.task.unzip.impl.unzipPackageImpl#getunzipTask()
+     * @see com.github.maybeec.oomph.task.unzip.impl.unzipTaskImpl
+     * @see com.github.maybeec.oomph.task.unzip.impl.unzipPackageImpl#getunzipTask()
      * @generated
      */
     EClass UNZIP_TASK = eINSTANCE.getunzipTask();

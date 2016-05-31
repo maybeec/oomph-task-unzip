@@ -10,7 +10,7 @@
     Eike Stepper - initial API and implementation
 -->
 <feature
-      id="com.github.maybee.oomph.task.unzip"
+      id="com.github.maybeec.oomph.task.unzip"
       label="%featureName"
       version="1.0.0.qualifier"
       provider-name="%providerName">
@@ -33,14 +33,14 @@
    </url>
 
    <plugin
-         id="com.github.maybee.oomph.task.unzip"
+         id="com.github.maybeec.oomph.task.unzip"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.github.maybee.oomph.task.unzip.edit"
+         id="com.github.maybeec.oomph.task.unzip.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"

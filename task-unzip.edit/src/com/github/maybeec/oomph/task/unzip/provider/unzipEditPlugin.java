@@ -1,6 +1,6 @@
 /**
  */
-package com.github.maybee.oomph.task.unzip.provider;
+package com.github.maybeec.oomph.task.unzip.provider;
 
 import org.eclipse.oomph.base.provider.BaseEditPlugin;
 import org.eclipse.oomph.setup.provider.SetupEditPlugin;

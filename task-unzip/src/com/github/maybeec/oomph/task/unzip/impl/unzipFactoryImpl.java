@@ -1,6 +1,6 @@
 /**
  */
-package com.github.maybee.oomph.task.unzip.impl;
+package com.github.maybeec.oomph.task.unzip.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -8,9 +8,9 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import com.github.maybee.oomph.task.unzip.unzipFactory;
-import com.github.maybee.oomph.task.unzip.unzipPackage;
-import com.github.maybee.oomph.task.unzip.unzipTask;
+import com.github.maybeec.oomph.task.unzip.unzipFactory;
+import com.github.maybeec.oomph.task.unzip.unzipPackage;
+import com.github.maybeec.oomph.task.unzip.unzipTask;
 
 /**
  * <!-- begin-user-doc -->

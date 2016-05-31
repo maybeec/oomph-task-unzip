@@ -1,9 +1,9 @@
 /**
  *
  */
-package com.github.maybee.oomph.task.unzip.core;
+package com.github.maybeec.oomph.task.unzip.core;
 
-import com.github.maybee.oomph.task.unzip.core.impl.UnzipUtilImpl;
+import com.github.maybeec.oomph.task.unzip.core.impl.UnzipUtilImpl;
 
 /**
  * @author sholzer

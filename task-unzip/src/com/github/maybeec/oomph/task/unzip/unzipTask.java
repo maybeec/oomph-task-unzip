@@ -1,6 +1,6 @@
 /**
  */
-package com.github.maybee.oomph.task.unzip;
+package com.github.maybeec.oomph.task.unzip;
 
 import org.eclipse.oomph.setup.SetupTask;
 
@@ -12,13 +12,13 @@ import org.eclipse.oomph.setup.SetupTask;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link com.github.maybee.oomph.task.unzip.unzipTask#getZipFile <em>Zip File</em>}</li>
- *   <li>{@link com.github.maybee.oomph.task.unzip.unzipTask#getDestinationDir <em>Destination Dir</em>}</li>
- *   <li>{@link com.github.maybee.oomph.task.unzip.unzipTask#getPriority <em>Priority</em>}</li>
+ *   <li>{@link com.github.maybeec.oomph.task.unzip.unzipTask#getZipFile <em>Zip File</em>}</li>
+ *   <li>{@link com.github.maybeec.oomph.task.unzip.unzipTask#getDestinationDir <em>Destination Dir</em>}</li>
+ *   <li>{@link com.github.maybeec.oomph.task.unzip.unzipTask#getPriority <em>Priority</em>}</li>
  * </ul>
  * </p>
  *
- * @see com.github.maybee.oomph.task.unzip.unzipPackage#getunzipTask()
+ * @see com.github.maybeec.oomph.task.unzip.unzipPackage#getunzipTask()
  * @model annotation="http://www.eclipse.org/oomph/setup/Enablement variableName='p2.unzip' repository='http://download.example.org/task-unzip/updates' installableUnits='task-unzip.feature.group'"
  *        annotation="http://www.eclipse.org/oomph/setup/ValidTriggers triggers='BOOTSTRAP STARTUP MANUAL'"
  * @generated
@@ -35,14 +35,14 @@ public interface unzipTask extends SetupTask
    * <!-- end-user-doc -->
    * @return the value of the '<em>Zip File</em>' attribute.
    * @see #setZipFile(String)
-   * @see com.github.maybee.oomph.task.unzip.unzipPackage#getunzipTask_ZipFile()
+   * @see com.github.maybeec.oomph.task.unzip.unzipPackage#getunzipTask_ZipFile()
    * @model required="true"
    * @generated
    */
   String getZipFile();
 
   /**
-   * Sets the value of the '{@link com.github.maybee.oomph.task.unzip.unzipTask#getZipFile <em>Zip File</em>}' attribute.
+   * Sets the value of the '{@link com.github.maybeec.oomph.task.unzip.unzipTask#getZipFile <em>Zip File</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Zip File</em>' attribute.
@@ -61,14 +61,14 @@ public interface unzipTask extends SetupTask
    * <!-- end-user-doc -->
    * @return the value of the '<em>Destination Dir</em>' attribute.
    * @see #setDestinationDir(String)
-   * @see com.github.maybee.oomph.task.unzip.unzipPackage#getunzipTask_DestinationDir()
+   * @see com.github.maybeec.oomph.task.unzip.unzipPackage#getunzipTask_DestinationDir()
    * @model required="true"
    * @generated
    */
   String getDestinationDir();
 
   /**
-   * Sets the value of the '{@link com.github.maybee.oomph.task.unzip.unzipTask#getDestinationDir <em>Destination Dir</em>}' attribute.
+   * Sets the value of the '{@link com.github.maybeec.oomph.task.unzip.unzipTask#getDestinationDir <em>Destination Dir</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Destination Dir</em>' attribute.
@@ -88,14 +88,14 @@ public interface unzipTask extends SetupTask
    * <!-- end-user-doc -->
    * @return the value of the '<em>Priority</em>' attribute.
    * @see #setPriority(int)
-   * @see com.github.maybee.oomph.task.unzip.unzipPackage#getunzipTask_Priority()
+   * @see com.github.maybeec.oomph.task.unzip.unzipPackage#getunzipTask_Priority()
    * @model default="500"
    * @generated
    */
   int getPriority();
 
   /**
-   * Sets the value of the '{@link com.github.maybee.oomph.task.unzip.unzipTask#getPriority <em>Priority</em>}' attribute.
+   * Sets the value of the '{@link com.github.maybeec.oomph.task.unzip.unzipTask#getPriority <em>Priority</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Priority</em>' attribute.

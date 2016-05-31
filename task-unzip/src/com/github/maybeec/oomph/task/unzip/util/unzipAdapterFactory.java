@@ -1,6 +1,6 @@
 /**
  */
-package com.github.maybee.oomph.task.unzip.util;
+package com.github.maybeec.oomph.task.unzip.util;
 
 import org.eclipse.oomph.base.ModelElement;
 import org.eclipse.oomph.setup.SetupTask;
@@ -10,15 +10,15 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
-import com.github.maybee.oomph.task.unzip.unzipPackage;
-import com.github.maybee.oomph.task.unzip.unzipTask;
+import com.github.maybeec.oomph.task.unzip.unzipPackage;
+import com.github.maybeec.oomph.task.unzip.unzipTask;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see com.github.maybee.oomph.task.unzip.unzipPackage
+ * @see com.github.maybeec.oomph.task.unzip.unzipPackage
  * @generated
  */
 public class unzipAdapterFactory extends AdapterFactoryImpl
@@ -115,13 +115,13 @@ public class unzipAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.github.maybee.oomph.task.unzip.unzipTask <em>Task</em>}'.
+   * Creates a new adapter for an object of class '{@link com.github.maybeec.oomph.task.unzip.unzipTask <em>Task</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.github.maybee.oomph.task.unzip.unzipTask
+   * @see com.github.maybeec.oomph.task.unzip.unzipTask
    * @generated
    */
   public Adapter createunzipTaskAdapter()

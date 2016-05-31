@@ -3,7 +3,7 @@
     modelDirectory="/task-unzip/src"
     creationIcons="false"
     editorDirectory=""
-    modelPluginID="com.github.maybee.oomph.task.unzip"
+    modelPluginID="com.github.maybeec.oomph.task.unzip"
     modelName="unzip"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore"
@@ -17,7 +17,7 @@
   <foreignModel>unzip.ecore</foreignModel>
   <genPackages
       prefix="unzip"
-      basePackage="com.github.maybee.oomph.task"
+      basePackage="com.github.maybeec.oomph.task"
       disposableProviderFactory="true"
       multipleEditorPages="false"
       generateModelWizard="false"

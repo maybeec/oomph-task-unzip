@@ -1,6 +1,6 @@
 /**
  */
-package com.github.maybee.oomph.task.unzip.impl;
+package com.github.maybeec.oomph.task.unzip.impl;
 
 import org.eclipse.oomph.setup.SetupPackage;
 
@@ -9,9 +9,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import com.github.maybee.oomph.task.unzip.unzipFactory;
-import com.github.maybee.oomph.task.unzip.unzipPackage;
-import com.github.maybee.oomph.task.unzip.unzipTask;
+import com.github.maybeec.oomph.task.unzip.unzipFactory;
+import com.github.maybeec.oomph.task.unzip.unzipPackage;
+import com.github.maybeec.oomph.task.unzip.unzipTask;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class unzipPackageImpl extends EPackageImpl implements unzipPackage
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see org.eclipse.emf.ecore.EPackage.Registry
-   * @see com.github.maybee.oomph.task.unzip.unzipPackage#eNS_URI
+   * @see com.github.maybeec.oomph.task.unzip.unzipPackage#eNS_URI
    * @see #init()
    * @generated
    */
