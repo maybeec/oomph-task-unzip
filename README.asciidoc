@@ -1,0 +1,28 @@
+= Oomph Download Setup Task
+
+== Purpose
+The `oomph-unzip-task` is an extension for the https://projects.eclipse.org/proposals/oomph[Eclipse Oomph Installer] that allows to unzip resources during the setup. The `unzipTask` uses the *http://www.lingala.net/zip4j/index.php[lingala.net Zip4J]* library to unzip the resources.
+
+== Usage
+
+* Include `http://www.example.org/task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Task-unzip-1.0.ecore` at `xsi:schemaLocation` in your Setup file so that the oomph installer can find the required packages.
+
+[WARNING]
+====
+We haven't released yet. So this doesn't work for now.
+====
+
+* Now you can add the following snippet to your Setup file
+[source, xml]
+<setupTask
+    xsi:type="com.github.maybeec.oomph.task:unzip"
+    id="reorder.nodejs.2"
+    excludedTriggers="STARTUP"
+    zipFile="${some.path}/file.zip"
+	destinationDir="your/tempFolder"
+	priority="500"
+	estimatedSize="5"s
+/>
+
+* `zipFile` specifies the zip file you want to be unziped. This zip file must not be encrypted
+* `destinationDir` specifies the folder the data should be stored. The safest is to specify a full path

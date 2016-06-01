@@ -8,6 +8,39 @@
   <name>Oomph Task - Unzip - Parent</name>
   <packaging>pom</packaging>
 
+  <developers>
+    <developer>
+      <name>Malte Brunnlieb</name>
+      <organization>GitHub</organization>
+      <organizationUrl>https://github.com/maybeec</organizationUrl>
+    </developer>
+    <developer>
+      <name>Steffen B. Holzer</name>
+      <organization>GitHub</organization>
+      <organizationUrl>https://github.com/themetalone</organizationUrl>
+    </developer>
+  </developers>
+
+  <url>https://github.com/maybeec/oomph-task-unzip</url>
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/maybeec/oomph-task-unzip/issues</url>
+  </issueManagement>
+
+  <scm>
+    <connection>scm:git:git@github.com:maybeec/oomph-task-unzip.git</connection>
+    <developerConnection>scm:git:git@github.com:maybeec/oomph-task-unzip.git</developerConnection>
+    <url>git@github.com:maybeec/oomph-task-unzip.git</url>
+  </scm>
+
+  <licenses>
+    <license>
+      <name>Eclipse Public Licence - v 1.0</name>
+      <url>https://www.eclipse.org/legal/epl-v10.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
