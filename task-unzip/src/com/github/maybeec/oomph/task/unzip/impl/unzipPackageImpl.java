@@ -223,7 +223,7 @@ public class unzipPackageImpl extends EPackageImpl implements unzipPackage
         !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
-    createResource("https://raw.githubusercontent.com/may-bee/oomph-task-download/master/task-download-updatesite/model/Task-unzip-1.0.ecore");
+    createResource("https://raw.githubusercontent.com/maybeec/oomph-task-download/master/task-download-updatesite/model/Oomph-task-unzip.ecore");
 
     // Create annotations
     // http://www.eclipse.org/emf/2002/Ecore
@@ -244,7 +244,7 @@ public class unzipPackageImpl extends EPackageImpl implements unzipPackage
   {
     String source = "http://www.eclipse.org/emf/2002/Ecore";
     addAnnotation(this, source, new String[] { "schemaLocation",
-        "https://raw.githubusercontent.com/may-bee/oomph-task-download/master/task-download-updatesite/model/Task-unzip-1.0.ecore" });
+        "https://raw.githubusercontent.com/maybeec/oomph-task-download/master/task-download-updatesite/model/Oomph-task-unzip.ecore" });
   }
 
   /**
@@ -256,7 +256,7 @@ public class unzipPackageImpl extends EPackageImpl implements unzipPackage
   protected void createEnablementAnnotations()
   {
     String source = "http://www.eclipse.org/oomph/setup/Enablement";
-    addAnnotation(unzipTaskEClass, source, new String[] { "variableName", "p2.unzip", "repository", "http://download.example.org/task-unzip/updates",
+    addAnnotation(unzipTaskEClass, source, new String[] { "variableName", "p2.unzip", "repository", "https://maybeec.github.io/oomph-task-unzip/update",
         "installableUnits", "task-unzip.feature.group" });
   }
 

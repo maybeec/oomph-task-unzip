@@ -24,7 +24,7 @@
       extensibleProviderFactory="true"
       childCreationExtenders="true"
       fileExtensions="setup"
-      publicationLocation="/task-unzip-updatesite/model/Task-unzip-1.0.ecore"
+      publicationLocation="/task-unzip-updatesite/model/Oomph-task-unzip.ecore"
       ecorePackage="unzip.ecore#/">
     <genClasses ecoreClass="unzip.ecore#//unzipTask">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute unzip.ecore#//unzipTask/zipFile"/>
