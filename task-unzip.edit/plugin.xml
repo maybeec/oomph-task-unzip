@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated unzip -->
       <factory
-            uri="http://www.example.org/task-unzip/1.0"
+            uri="http://maybeec.github.io/oomph-task-unzip/1.0"
             class="com.github.maybeec.oomph.task.unzip.provider.unzipItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

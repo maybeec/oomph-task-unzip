@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated unzip -->
       <package
-            uri="http://www.example.org/task-unzip/1.0"
+            uri="http://maybeec.github.io/oomph-task-unzip/1.0"
             class="com.github.maybeec.oomph.task.unzip.unzipPackage"
             genModel="model/unzip.genmodel"/>
    </extension>
