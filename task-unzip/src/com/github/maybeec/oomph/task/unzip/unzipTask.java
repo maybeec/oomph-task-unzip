@@ -19,7 +19,7 @@ import org.eclipse.oomph.setup.SetupTask;
  * </p>
  *
  * @see com.github.maybeec.oomph.task.unzip.unzipPackage#getunzipTask()
- * @model annotation="http://www.eclipse.org/oomph/setup/Enablement variableName='p2.unzip' repository='https://maybeec.github.io/oomph-task-unzip/update' installableUnits='task-unzip.feature.group'"
+ * @model annotation="http://www.eclipse.org/oomph/setup/Enablement variableName='p2.unzip' repository='https://maybeec.github.io/oomph-task-unzip/update' installableUnits='com.github.maybeec.oomph.task.unzip.feature.feature.group'"
  *        annotation="http://www.eclipse.org/oomph/setup/ValidTriggers triggers='BOOTSTRAP STARTUP MANUAL'"
  * @generated
  */
