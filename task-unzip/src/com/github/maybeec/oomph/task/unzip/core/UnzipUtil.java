@@ -3,6 +3,7 @@
  */
 package com.github.maybeec.oomph.task.unzip.core;
 
+import com.github.maybeec.oomph.task.unzip.core.exceptions.UnzipTaskException;
 import com.github.maybeec.oomph.task.unzip.core.impl.UnzipUtilImpl;
 
 /**
@@ -28,6 +29,6 @@ public abstract class UnzipUtil
     return instance;
   }
 
-  public abstract void unzip(String zipFile, String destDir);
+  public abstract void unzip(String zipFile, String destDir) throws UnzipTaskException;
 
 }
