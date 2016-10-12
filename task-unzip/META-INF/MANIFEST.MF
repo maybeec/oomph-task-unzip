@@ -5,7 +5,13 @@ Bundle-Vendor: %providerName
 Bundle-SymbolicName: com.github.maybeec.oomph.task.unzip;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .,
- lib/zip4j-1.3.2.jar
+ lib/commons-compress-1.11.jar,
+ lib/commons-io-2.5.jar,
+ lib/plexus-archiver-3.4.jar,
+ lib/plexus-io-2.7.1.jar,
+ lib/plexus-utils-3.0.24.jar,
+ lib/snappy-0.4.jar,
+ lib/xz-1.5.jar
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: J2SE-1.5

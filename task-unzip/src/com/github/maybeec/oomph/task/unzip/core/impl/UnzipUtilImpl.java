@@ -1,11 +1,13 @@
 package com.github.maybeec.oomph.task.unzip.core.impl;
 
-import net.lingala.zip4j.core.ZipFile;
-import net.lingala.zip4j.progress.ProgressMonitor;
-
 import com.github.maybeec.oomph.task.unzip.core.SetupTaskLogger;
 import com.github.maybeec.oomph.task.unzip.core.UnzipUtil;
+import com.github.maybeec.oomph.task.unzip.core.exceptions.UnsupportedFileTypeException;
 import com.github.maybeec.oomph.task.unzip.core.exceptions.UnzipTaskException;
+
+import org.codehaus.plexus.archiver.UnArchiver;
+import org.codehaus.plexus.archiver.tar.TarGZipUnArchiver;
+import org.codehaus.plexus.archiver.zip.ZipUnArchiver;
 
 import java.io.File;
 
@@ -23,87 +25,45 @@ public class UnzipUtilImpl extends UnzipUtil
     SetupTaskLogger.getLogger().log("Archive: " + zipFile);
     SetupTaskLogger.getLogger().log("Destination: " + destDir);
 
-    ZipFile zip;
+    UnArchiver unarchiver = getUnArchiver(zipFile);
+    unarchiver.setDestFile(new File(zipFile));
+    unarchiver.setDestDirectory(new File(destDir));
+
     try
     {
-      zip = new ZipFile(new File(zipFile));
-    }
-    catch (Exception ex)
-    {
-      throw new UnzipTaskException("Encountered problems :" + ex.getMessage());
-    }
-    try
-    {
-      zip.setRunInThread(true);
-      ProgressMonitor progress = zip.getProgressMonitor();
-      zip.extractAll(destDir);
-      while (progress.getState() == ProgressMonitor.STATE_BUSY)
-      {
-        SetupTaskLogger.getLogger().log(progress.getPercentDone() + " percent done");
-        try
-        {
-          Thread.sleep(500);
-        }
-        catch (Exception e)
-        {
-        }
-      }
+      unarchiver.extract();
     }
     catch (Exception e)
     {
-      throw new UnzipTaskException("Could not unzip properly: " + e.getMessage());
+      throw new UnzipTaskException("Could not unzip properly: " + e.getMessage(), e);
     }
 
   }
 
-}
-
-class UnzipThread extends Thread
-{
-
-  /**
-   * zip4j api
-   */
-  ZipFile zip;
-
-  /**
-   * destination directory
-   */
-  String destination;
-
-  /**
-   * if something went wrong. Since I cannot throw exceptions through the runnable interface I used this
-   * work around
-   */
-  boolean error = false;
-
-  /**
-   * What went wrong
-   */
-  String errorMessage;
-
-  /**
-   * Constructor
-   * @param zip
-   *            the zip4j api obj
-   * @param destination
-   *            destination directory
-   * @author sholzer (Feb 10, 2016)
-   */
-  UnzipThread(ZipFile zip, String destination)
+  private UnArchiver getUnArchiver(String zipFile) throws UnsupportedFileTypeException
   {
-    this.zip = zip;
-    this.destination = destination;
-  }
-
-  /**
-   * {@inheritDoc}
-   * @author sholzer (Feb 10, 2016)
-   */
-  @Override
-  public void run()
-  {
-
+    String fileExtension = "undefined";
+    try
+    {
+      int lastDot = zipFile.lastIndexOf('.');
+      fileExtension = zipFile.substring(lastDot + 1);
+    }
+    catch (IllegalArgumentException e)
+    {
+      throw new UnsupportedFileTypeException("Could not find an unarchiver for file type " + fileExtension, e);
+    }
+    if (fileExtension.equals("gz"))
+    {
+      return new TarGZipUnArchiver();
+    }
+    else
+    {
+      if (!fileExtension.equals("zip"))
+      {
+        SetupTaskLogger.getLogger().logWarning("Could not find Unarchiver for " + fileExtension + " ! Trying Zip Unarchiver. ");
+      }
+      return new ZipUnArchiver();
+    }
   }
 
 }
