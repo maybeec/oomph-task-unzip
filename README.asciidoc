@@ -1,28 +1,28 @@
-= Oomph Download Setup Task
+= Oomph Unzip Setup Task
 
 == Purpose
-The `oomph-unzip-task` is an extension for the https://projects.eclipse.org/proposals/oomph[Eclipse Oomph Installer] that allows to unzip resources during the setup. The `unzipTask` uses the *http://www.lingala.net/zip4j/index.php[lingala.net Zip4J]* library to unzip the resources.
+The `oomph-unzip-task` is an extension for the https://projects.eclipse.org/proposals/oomph[Eclipse Oomph Installer] that allows to unarchive resources during the setup. The `unzipTask` uses the *https://commons.apache.org/proper/commons-compress/[apache-commons-compress]* library to unarchive the resources.
+
+Despite it's name the `oomph-unizp-task` handles a wide range of archives besides +.zip+ (e.g. +.tar.gz+)
 
 == Usage
 
-* Include `http://www.example.org/task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Task-unzip-1.0.ecore` at `xsi:schemaLocation` in your Setup file so that the oomph installer can find the required packages.
+* Include `http://maybeec.github.io/oomph-task-unzip/1.0 https://raw.githubusercontent.com/maybeec/oomph-task-unzip/master/task-unzip-updatesite/model/Oomph-task-unzip.ecore` at `xsi:schemaLocation` in your Setup file so that the oomph installer can find the required packages.
 
 [WARNING]
 ====
-Alpha Relase is now public. For development of oomph product or project setup files in eclipse install the plugin from https://maybeec.github.io/oomph-task-unzip/update
+Relase v2.0.0 is now public. For development of oomph product or project setup files in eclipse install the plugin from https://maybeec.github.io/oomph-task-unzip/update
 ====
 
 * Now you can add the following snippet to your Setup file
 [source, xml]
 <setupTask
     xsi:type="com.github.maybeec.oomph.task:unzip"
-    id="reorder.nodejs.2"
-    excludedTriggers="STARTUP"
-    zipFile="${some.path}/file.zip"
+	<!-- ... -->
+    zipFile="your/path/arch.ive"
 	destinationDir="your/tempFolder"
 	priority="500"
-	estimatedSize="5"s
 />
 
-* `zipFile` specifies the zip file you want to be unziped. This zip file must not be encrypted
-* `destinationDir` specifies the folder the data should be stored. The safest is to specify a full path
+* `zipFile` specifies the archive file you want to be unarchived. This file must not be encrypted. We support a wide range of archive types (namely most of the apache-commons-compress supported extensions).
+* `destinationDir` specifies the folder the data should be stored in. The safest is to specify a full path
