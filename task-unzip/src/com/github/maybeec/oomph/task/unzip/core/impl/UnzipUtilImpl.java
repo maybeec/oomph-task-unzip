@@ -35,10 +35,10 @@ public class UnzipUtilImpl extends UnzipUtil
     File file = new File(zipFile);
     try
     {
-      InputStream fileIS = new FileInputStream(file);
+      InputStream fileIS = new BufferedInputStream(new FileInputStream(file));
       switch (archiveType(file.getName()))
       {
-      case UNKOWN:
+      case UNKNOWN:
         SetupTaskLogger.getLogger().logWarning("Unknown archive extension of " + file.getName() + ". Trying nevertheless");
         //$FALL-THROUGH$
       case COMPRESSED:
@@ -56,19 +56,23 @@ public class UnzipUtilImpl extends UnzipUtil
         os.close();
         cIS.close();
         fileIS.close();
-        fileIS = new FileInputStream(tempFile);
+        SetupTaskLogger.getLogger().log("Decompressing done");
+        fileIS = new BufferedInputStream(new FileInputStream(tempFile));
         //$FALL-THROUGH$
       case ARCHIVE:
         SetupTaskLogger.getLogger().log("Unarchiving");
         ArchiveInputStream archiveIS = new ArchiveStreamFactory().createArchiveInputStream(fileIS);
-        while (archiveIS.available() != 0)
+        ArchiveEntry entry;
+        while ((entry = archiveIS.getNextEntry()) != null)
         {
-          ArchiveEntry entry = archiveIS.getNextEntry();
+          SetupTaskLogger.getLogger().log("Extracting " + entry.getName());
           OutputStream out = new FileOutputStream(new File(destDir, entry.getName()));
           IOUtils.copy(archiveIS, out);
+          out.flush();
           out.close();
         }
         archiveIS.close();
+        SetupTaskLogger.getLogger().logInfo("Done");
       }
     }
     catch (Exception ex)
@@ -80,9 +84,12 @@ public class UnzipUtilImpl extends UnzipUtil
 
   private ArchiveType archiveType(String fileName)
   {
-
-    String[] components = fileName.split(".");
-    String ending = components[components.length - 1].toLowerCase();
+    int lastDotPosition = fileName.lastIndexOf('.');
+    if (lastDotPosition == -1)
+    {
+      return ArchiveType.UNKNOWN;
+    }
+    String ending = fileName.substring(lastDotPosition + 1);
 
     if (ending.equals("zip") || ending.equals("cpio") || ending.equals("ar") || ending.equals("tar") || ending.equals("jar") || ending.equals("dump")
         || ending.equals("7z") || ending.equals("arj"))
@@ -93,13 +100,13 @@ public class UnzipUtilImpl extends UnzipUtil
     {
       return ArchiveType.COMPRESSED;
     }
-    return ArchiveType.UNKOWN;
+    return ArchiveType.UNKNOWN;
 
   }
 
   enum ArchiveType
   {
-    ARCHIVE, COMPRESSED, UNKOWN
+    ARCHIVE, COMPRESSED, UNKNOWN
   }
 
 }
