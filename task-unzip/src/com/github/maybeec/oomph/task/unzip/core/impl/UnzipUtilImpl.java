@@ -2,14 +2,21 @@ package com.github.maybeec.oomph.task.unzip.core.impl;
 
 import com.github.maybeec.oomph.task.unzip.core.SetupTaskLogger;
 import com.github.maybeec.oomph.task.unzip.core.UnzipUtil;
-import com.github.maybeec.oomph.task.unzip.core.exceptions.UnsupportedFileTypeException;
 import com.github.maybeec.oomph.task.unzip.core.exceptions.UnzipTaskException;
 
-import org.codehaus.plexus.archiver.UnArchiver;
-import org.codehaus.plexus.archiver.tar.TarGZipUnArchiver;
-import org.codehaus.plexus.archiver.zip.ZipUnArchiver;
+import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.apache.commons.compress.archivers.ArchiveInputStream;
+import org.apache.commons.compress.archivers.ArchiveStreamFactory;
+import org.apache.commons.compress.compressors.CompressorInputStream;
+import org.apache.commons.compress.compressors.CompressorStreamFactory;
+import org.apache.commons.compress.utils.IOUtils;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * @author sholzer
@@ -25,45 +32,74 @@ public class UnzipUtilImpl extends UnzipUtil
     SetupTaskLogger.getLogger().log("Archive: " + zipFile);
     SetupTaskLogger.getLogger().log("Destination: " + destDir);
 
-    UnArchiver unarchiver = getUnArchiver(zipFile);
-    unarchiver.setDestFile(new File(zipFile));
-    unarchiver.setDestDirectory(new File(destDir));
-
+    File file = new File(zipFile);
     try
     {
-      unarchiver.extract();
+      InputStream fileIS = new FileInputStream(file);
+      switch (archiveType(file.getName()))
+      {
+      case UNKOWN:
+        SetupTaskLogger.getLogger().logWarning("Unknown archive extension of " + file.getName() + ". Trying nevertheless");
+        //$FALL-THROUGH$
+      case COMPRESSED:
+        SetupTaskLogger.getLogger().log("Decompressing Archive");
+        BufferedInputStream in = new BufferedInputStream(fileIS);
+        CompressorInputStream cIS = new CompressorStreamFactory().createCompressorInputStream(in);
+        File tempFile = File.createTempFile(file.getName(), ".decompressed");
+        OutputStream os = new FileOutputStream(tempFile);
+        final byte[] buffer = new byte[256];
+        int n = 0;
+        while (-1 != (n = cIS.read(buffer)))
+        {
+          os.write(buffer, 0, n);
+        }
+        os.close();
+        cIS.close();
+        fileIS.close();
+        fileIS = new FileInputStream(tempFile);
+        //$FALL-THROUGH$
+      case ARCHIVE:
+        SetupTaskLogger.getLogger().log("Unarchiving");
+        ArchiveInputStream archiveIS = new ArchiveStreamFactory().createArchiveInputStream(fileIS);
+        while (archiveIS.available() != 0)
+        {
+          ArchiveEntry entry = archiveIS.getNextEntry();
+          OutputStream out = new FileOutputStream(new File(destDir, entry.getName()));
+          IOUtils.copy(archiveIS, out);
+          out.close();
+        }
+        archiveIS.close();
+      }
     }
-    catch (Exception e)
+    catch (Exception ex)
     {
-      throw new UnzipTaskException("Could not unzip properly: " + e.getMessage(), e);
+      throw new UnzipTaskException(ex);
     }
 
   }
 
-  private UnArchiver getUnArchiver(String zipFile) throws UnsupportedFileTypeException
+  private ArchiveType archiveType(String fileName)
   {
-    String fileExtension = "undefined";
-    try
+
+    String[] components = fileName.split(".");
+    String ending = components[components.length - 1].toLowerCase();
+
+    if (ending.equals("zip") || ending.equals("cpio") || ending.equals("ar") || ending.equals("tar") || ending.equals("jar") || ending.equals("dump")
+        || ending.equals("7z") || ending.equals("arj"))
     {
-      int lastDot = zipFile.lastIndexOf('.');
-      fileExtension = zipFile.substring(lastDot + 1);
+      return ArchiveType.ARCHIVE;
     }
-    catch (IllegalArgumentException e)
+    if (ending.equals("bz2") || ending.equals("lzma") || ending.equals("xz") || ending.equals("pack200") || ending.equals("z") || ending.equals("gz"))
     {
-      throw new UnsupportedFileTypeException("Could not find an unarchiver for file type " + fileExtension, e);
+      return ArchiveType.COMPRESSED;
     }
-    if (fileExtension.equals("gz"))
-    {
-      return new TarGZipUnArchiver();
-    }
-    else
-    {
-      if (!fileExtension.equals("zip"))
-      {
-        SetupTaskLogger.getLogger().logWarning("Could not find Unarchiver for " + fileExtension + " ! Trying Zip Unarchiver. ");
-      }
-      return new ZipUnArchiver();
-    }
+    return ArchiveType.UNKOWN;
+
+  }
+
+  enum ArchiveType
+  {
+    ARCHIVE, COMPRESSED, UNKOWN
   }
 
 }
