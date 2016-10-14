@@ -77,6 +77,48 @@ public class UnzipUtilTest
     assertTrue("tared - Copy.txt not extracted", taredCopyExtracted);
   }
 
+  @Test
+  public void testNestedFiles() throws Exception
+  {
+    String nestedFolders = resourceFolder + "nested.tar";
+    util.unzip(nestedFolders, destination);
+    boolean firstLvlFolder = false;
+    boolean secondLvlFolder = false;
+    boolean secondLvlFile = false;
+    boolean thirdLvlFile = false;
+
+    for (File f : dest.listFiles())
+    {
+      if (f.isDirectory() && f.getName().equals("New folder"))
+      {
+        firstLvlFolder = true;
+        for (File ff : f.listFiles())
+        {
+          if (ff.isDirectory() && ff.getName().equals("New folder"))
+          {
+            secondLvlFolder = true;
+            for (File fff : ff.listFiles())
+            {
+              if (fff.getName().equals("test.txt"))
+              {
+                thirdLvlFile = true;
+              }
+            }
+          }
+          if (ff.isFile() && ff.getName().equals("test.txt"))
+          {
+            secondLvlFile = true;
+          }
+        }
+      }
+    }
+
+    assertTrue("Problems in the first lvl", firstLvlFolder);
+    assertTrue("Problems in the second lvl", secondLvlFile && secondLvlFolder);
+    assertTrue("Problems in the third lvl", thirdLvlFile);
+
+  }
+
   @AfterClass
   public static void afterAll()
   {
@@ -87,7 +129,22 @@ public class UnzipUtilTest
       {
         f.delete();
       }
+      else
+      {
+        deleteFolder(f);
+      }
     }
   }
 
+  public static void deleteFolder(File f)
+  {
+    for (File ff : f.listFiles())
+    {
+      if (ff.isDirectory())
+      {
+        deleteFolder(ff);
+      }
+      ff.delete();
+    }
+  }
 }

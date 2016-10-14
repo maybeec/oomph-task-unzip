@@ -65,7 +65,13 @@ public class UnzipUtilImpl extends UnzipUtil
         ArchiveEntry entry;
         while ((entry = archiveIS.getNextEntry()) != null)
         {
+
           SetupTaskLogger.getLogger().log("Extracting " + entry.getName());
+          if (entry.isDirectory())
+          {
+            new File(destDir, entry.getName()).mkdir();
+            continue;
+          }
           OutputStream out = new FileOutputStream(new File(destDir, entry.getName()));
           IOUtils.copy(archiveIS, out);
           out.flush();
