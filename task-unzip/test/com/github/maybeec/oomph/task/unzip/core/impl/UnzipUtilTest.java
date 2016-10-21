@@ -119,6 +119,17 @@ public class UnzipUtilTest
 
   }
 
+  @Test
+  public void testFirstDataInFolder() throws Exception
+  {
+    String zipFile = resourceFolder + "data.zip";
+    util.unzip(zipFile, destination);
+
+    boolean aExists = new File(destination + "/elasticsearch-2.3.0/README.textile").exists();
+
+    assertTrue("File not found", aExists);
+  }
+
   @AfterClass
   public static void afterAll()
   {
@@ -146,5 +157,6 @@ public class UnzipUtilTest
       }
       ff.delete();
     }
+    f.delete();
   }
 }

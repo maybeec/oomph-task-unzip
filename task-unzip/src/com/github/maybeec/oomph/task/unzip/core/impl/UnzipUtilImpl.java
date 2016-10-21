@@ -67,6 +67,7 @@ public class UnzipUtilImpl extends UnzipUtil
         {
 
           SetupTaskLogger.getLogger().log("Extracting " + entry.getName());
+          new File(destDir, entry.getName()).getParentFile().mkdirs();
           if (entry.isDirectory())
           {
             new File(destDir, entry.getName()).mkdir();
