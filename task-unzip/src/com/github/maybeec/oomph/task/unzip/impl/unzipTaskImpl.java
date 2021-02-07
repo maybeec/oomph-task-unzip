@@ -91,6 +91,8 @@ public class unzipTaskImpl extends SetupTaskImpl implements unzipTask
    */
   protected int priority = PRIORITY_EDEFAULT;
 
+  private boolean isNeeded = true;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -300,7 +302,7 @@ public class unzipTaskImpl extends SetupTaskImpl implements unzipTask
 
   public boolean isNeeded(SetupTaskContext context) throws Exception
   {
-    return true;
+    return isNeeded;
   }
 
   public void perform(SetupTaskContext context) throws Exception
@@ -308,6 +310,7 @@ public class unzipTaskImpl extends SetupTaskImpl implements unzipTask
     SetupTaskLogger.getLogger().setContext(context);
     UnzipUtil unzipUtil = UnzipUtil.getInstance();
     unzipUtil.unzip(zipFile, destinationDir);
+    isNeeded = false;
   }
 
   @Override
