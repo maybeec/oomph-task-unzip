@@ -8,6 +8,26 @@
   <name>Oomph Task - Unzip - Parent</name>
   <packaging>pom</packaging>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <!-- Eclipse version to build against -->
+    <eclipse-repo.url>http://download.eclipse.org/releases/mars</eclipse-repo.url>
+
+    <!-- Tycho Build parameters -->
+    <tycho.version>2.2.0</tycho.version>
+    <tycho-extras.version>2.2.0</tycho-extras.version>
+    <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
+  </properties>
+
+  <modules>
+    <module>task-unzip</module>
+    <module>task-unzip-test</module>
+    <module>task-unzip.edit</module>
+    <module>task-unzip-feature</module>
+    <module>task-unzip-updatesite</module>
+  </modules>
+
   <developers>
     <developer>
       <name>Malte Brunnlieb</name>
@@ -35,30 +55,11 @@
 
   <licenses>
     <license>
-      <name>Eclipse Public Licence - v 1.0</name>
-      <url>https://www.eclipse.org/legal/epl-v10.html</url>
+      <name>Eclipse Public Licence - v 2.0</name>
+      <url>https://www.eclipse.org/legal/epl-v20.html</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    <!-- Eclipse version to build against -->
-    <eclipse-repo.url>http://download.eclipse.org/releases/mars</eclipse-repo.url>
-
-    <!-- Tycho Build parameters -->
-    <tycho.version>0.22.0</tycho.version>
-    <tycho-extras.version>0.22.0</tycho-extras.version>
-    <tycho-repo.url>https://oss.sonatype.org/content/groups/public/</tycho-repo.url>
-  </properties>
-
-  <modules>
-    <module>task-unzip</module>
-    <module>task-unzip.edit</module>
-    <module>task-unzip-feature</module>
-    <module>task-unzip-updatesite</module>
-  </modules>
 
   <build>
     <plugins>
@@ -76,6 +77,39 @@
         <artifactId>tycho-maven-plugin</artifactId>
         <version>${tycho.version}</version>
         <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <configuration>
+          <environments>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>linux</os>
+              <ws>gtk</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86</arch>
+            </environment>
+            <environment>
+              <os>win32</os>
+              <ws>win32</ws>
+              <arch>x86_64</arch>
+            </environment>
+            <environment>
+              <os>macosx</os>
+              <ws>cocoa</ws>
+              <arch>x86_64</arch>
+            </environment>
+          </environments>
+        </configuration>
       </plugin>
     </plugins>
     <pluginManagement>
@@ -128,6 +162,11 @@
       <id>eclipse platform</id>
       <layout>p2</layout>
       <url>${eclipse-repo.url}</url>
+    </repository>
+    <repository>
+      <id>orbit</id>
+      <layout>p2</layout>
+      <url>http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/</url>
     </repository>
   </repositories>
   <pluginRepositories>
